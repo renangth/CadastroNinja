@@ -17,7 +17,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
-    private List<MissoesModel> missoes;
+
+    // @ManyToOne: Na classe NinjaModel só vai ter 1 missão (muitos pra um)
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreing Key ou chave estrangeira
+    private MissoesModel missoes;
 
     //noArgs constructor
     public NinjaModel() {

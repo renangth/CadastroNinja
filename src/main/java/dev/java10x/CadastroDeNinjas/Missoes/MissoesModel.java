@@ -2,11 +2,17 @@ package dev.java10x.CadastroDeNinjas.Missoes;
 
 import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_missoes")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class MissoesModel {
     @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,31 +24,4 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjas;
 
-    //noArgs Constructor
-    public MissoesModel () {
-
-    }
-
-    //AllArgs Constructor
-    public MissoesModel(String nome, char dificuldade) {
-        this.nome = nome;
-        this.dificuldade = dificuldade;
-    }
-
-    //Getters e Setters:
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(){
-
-    }
-
-    public char getDificuldade(){
-        return dificuldade;
-    }
-
-    public void setDificuldade(){
-
-    }
 }

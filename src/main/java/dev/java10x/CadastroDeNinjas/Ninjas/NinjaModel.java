@@ -18,13 +18,19 @@ public class NinjaModel {
 
     @Id // define os id's automaticamente
             @GeneratedValue(strategy = GenerationType.IDENTITY) // passo a estrtégia de como definir o ID
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "nome")
     private String nome;
 
-    @Column(unique = true) // esta coluna é única no banco de dados (nmg pode ter email igual)
+    @Column(unique = true)// esta coluna é única no banco de dados (nmg pode ter email igual)
     private String email;
 
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "idade")
     private int idade;
 
     // @ManyToOne: Na classe NinjaModel só vai ter 1 missão (muitos pra um)

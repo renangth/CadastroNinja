@@ -3,7 +3,7 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // anotation para especificar que é um Controller
-@RequestMapping // anotation para mapear as rotas e colocar todas no msm lugar
+@RequestMapping("/ninjas") // anotation para mapear as rotas e colocar todas no msm lugar
 public class NinjaController {
 
     @GetMapping("/boasvindas") // pega as informaçoes de boas vindas e cria uma rota /boasVindas (boa prática: usar /)
@@ -19,19 +19,19 @@ public class NinjaController {
     }
 
     // Mostrar todos os Ninjas (READ)
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public String mostrarTodosOsNinjas(){
         return "Mostrar Ninja.";
     }
 
     // Mostrar Ninja por ID (READ)
-    @GetMapping("/ninjasID")
+    @GetMapping("/listarID")
     public String mostarNinjaPorId(){
         return "Mostar Ninja por Id.";
     }
 
     // Alterar dados dos Ninjas (UPDATE)
-    @PutMapping("/alterarPorId")
+    @PutMapping("/alterarId")
     public String alterarNinjaPorId(){
         return "Alterar Ninja por Id.";
     }

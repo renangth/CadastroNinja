@@ -23,8 +23,8 @@ public class NinjaController {
     // CRUDE NA PRÁTICA:
     // Adicionar Ninja (CREATE)
     @PostMapping("/criar")
-    public String criarNinja(){
-        return "Ninja criado.";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){ // anotation para especificar que o arquivo json vai ser inserido no corpo da nosssa requisição para fazer a serialiação inversa
+        return ninjaService.criarNinja(ninja);
     }
 
     // Mostrar todos os Ninjas (READ)

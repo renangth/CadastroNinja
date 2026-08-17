@@ -22,7 +22,7 @@ public class MissoesController {
 
     // POST -- Mandar uma requisição para criar as missoes
     @PostMapping("/criar")
-    public MissoesModel criarMissao(@RequestBody MissoesModel missao){
+    public MissoesModel criarMissao(@RequestBody MissoesModel missao){ // Anotation para fazer serialização reversa
         return missoesService.criarMissao(missao);
     }
 
@@ -33,9 +33,9 @@ public class MissoesController {
     }
 
     // DELETE -- Mandar uma requisição para deletar as missoes
-    @DeleteMapping("/deletar")
-    public String deletarMissao(){
-        return "Missao deletada com sucesso";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissaoPorId(@PathVariable Long id){ // Anotation para o usuário passar a variável do caminho
+        missoesService.deletarMissaoPorId(id);
     }
 }
 

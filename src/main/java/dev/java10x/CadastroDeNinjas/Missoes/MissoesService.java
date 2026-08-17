@@ -1,8 +1,10 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MissoesService {
@@ -16,5 +18,10 @@ public class MissoesService {
     // Listar as missoes
     public List<MissoesModel> listarMissoes(){
         return missoesRepository.findAll();
+    }
+
+    // Criar missao
+    public MissoesModel criarMissao(MissoesModel missao){
+        return missoesRepository.save(missao);
     }
 }

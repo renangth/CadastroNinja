@@ -30,10 +30,19 @@ public class NinjaService {
         return ninjaRepository.save(ninja);
     }
 
-    // Deletar um ninja
+    // Deletar um ninja - Tem que ser um metodo VOID pq o delete nao retorna nada, apenas exclui.
     public void deletarNinjaPorId(Long id){
         ninjaRepository.deleteById(id);
         System.out.println("Ninja Deletado com sucesso!");
+    }
+
+    // Atualizar um ninja por id
+    public NinjaModel atualizarNinjaPorId(Long id, NinjaModel ninjaAtualizado){
+        if(ninjaRepository.existsById(id)){ // se o id existir
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null;
     }
 }
 
